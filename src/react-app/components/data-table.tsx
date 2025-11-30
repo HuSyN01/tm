@@ -114,16 +114,19 @@ function TaskCellViewer({ task }: { task: Task }) {
   const [title, setTitle] = useState(task.title);
   const [description, setDescription] = useState(task.description);
   const [status, setStatus] = useState(task.status);
+  const [open, setOpen] = useState(false);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     toast.promise(
-      updateMutation.mutateAsync({
-        id: task.id,
-        title,
-        description,
-        status,
-      }),
+      updateMutation
+        .mutateAsync({
+          id: task.id,
+          title,
+          description,
+          status,
+        })
+        .then(() => setOpen(false)),
       {
         loading: "Updating task...",
         success: "Task updated successfully",
@@ -133,7 +136,11 @@ function TaskCellViewer({ task }: { task: Task }) {
   };
 
   return (
-    <Drawer direction={isMobile ? "bottom" : "right"}>
+    <Drawer
+      open={open}
+      onOpenChange={setOpen}
+      direction={isMobile ? "bottom" : "right"}
+    >
       <DrawerTrigger asChild>
         <Button variant="link" className="text-foreground w-fit px-0 text-left">
           {task.title}
@@ -209,6 +216,7 @@ function ActionsCell({ task }: { task: Task }) {
   const [title, setTitle] = useState(task.title);
   const [description, setDescription] = useState(task.description);
   const [status, setStatus] = useState(task.status);
+  const [open, setOpen] = useState(false);
 
   const handleDelete = () => {
     toast.promise(deleteMutation.mutateAsync(task.id), {
@@ -221,12 +229,14 @@ function ActionsCell({ task }: { task: Task }) {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     toast.promise(
-      updateMutation.mutateAsync({
-        id: task.id,
-        title,
-        description,
-        status,
-      }),
+      updateMutation
+        .mutateAsync({
+          id: task.id,
+          title,
+          description,
+          status,
+        })
+        .then(() => setOpen(false)),
       {
         loading: "Updating task...",
         success: "Task updated successfully",
@@ -236,7 +246,11 @@ function ActionsCell({ task }: { task: Task }) {
   };
 
   return (
-    <Drawer direction={isMobile ? "bottom" : "right"}>
+    <Drawer
+      open={open}
+      onOpenChange={setOpen}
+      direction={isMobile ? "bottom" : "right"}
+    >
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button
