@@ -1,4 +1,4 @@
-# Task Manager (TM)
+# Task Manager Capstone Project - Full Stack Application Built with React, Hono, and Cloudflare Workers
 
 A full-stack Task Manager application built as part of the **Advanced Full Stack Development & Software Testing** course. This project demonstrates modern web development practices using React, Hono, and Cloudflare Workers.
 
