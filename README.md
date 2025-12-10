@@ -8,7 +8,8 @@ A full-stack Task Manager application built as part of the **Advanced Full Stack
 
 - 📝 **Task Management** - Create, read, update, and delete tasks
 - 🔐 **User Authentication** - Secure login/signup with Better Auth
-- 📊 **Status Tracking** - Track tasks with statuses (todo, in-progress, done)
+- 📊 **Kanban Board** - Visualize and manage workflow with a drag-and-drop board
+- 🔥 **Task Priority** - Organize tasks by priority (Low, Medium, High)
 - 🎯 **Drag & Drop** - Reorder tasks with intuitive drag-and-drop
 - 🌙 **Dark Mode** - Built-in theme support
 - ⚡ **Edge Deployment** - Runs on Cloudflare Workers globally
@@ -50,7 +51,7 @@ A full-stack Task Manager application built as part of the **Advanced Full Stack
 
 ```bash
 # Clone the repository
-git clone https://github.com/ehtishamsajjad/tm.git
+git clone https://github.com/HuSyN01/tm.git
 cd tm
 
 # Install dependencies
